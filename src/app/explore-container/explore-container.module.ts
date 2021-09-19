@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from './explore-container.component';
 import { BalanceComponent } from '../balance/balance.component';
 import { PaymentsComponent } from '../payments/payments.component';
+import { RechargeComponent } from '../recharge/recharge.component';
 
 @NgModule({
 	imports: [
@@ -17,17 +18,20 @@ import { PaymentsComponent } from '../payments/payments.component';
 	declarations: [
 		ExploreContainerComponent,
 		BalanceComponent,
-		PaymentsComponent
+		PaymentsComponent,
+		RechargeComponent
 	],
 	exports: [
 		ExploreContainerComponent,
 		BalanceComponent,
-		PaymentsComponent
+		PaymentsComponent,
+		RechargeComponent
 	],
 	entryComponents: [
 		ExploreContainerComponent,
 		BalanceComponent,
-		PaymentsComponent
+		PaymentsComponent,
+		RechargeComponent
 	]
 })
 export class ExploreContainerComponentModule { }

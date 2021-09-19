@@ -68,10 +68,13 @@ export class LoginPage implements OnInit {
 
 	/* FUNCIÓN SUBMIT Se activa para enviar los datos en el formulario */
 	public submit() {
+		this.utils.deleteAccessToken().finally();
+		
 		return new Promise((resolve, reject) => {
 			this.utils.loadingPresent().then(() => {
 				if (this.LoginForm.valid) {
 					// Loading Mensaje
+					
 					this.UserData.email = this.LoginForm.get('email').value
 					this.UserData.password = this.LoginForm.get('password').value
 					
@@ -97,7 +100,7 @@ export class LoginPage implements OnInit {
 					this.utils.loadingDismiss()
 				}
 			});
-		})
+		});
 	}
 
 	setEmail(event) {

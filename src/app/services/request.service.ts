@@ -19,7 +19,10 @@ export class RequestService {
 
 	private END_POINTS = [
 		['login', '0'],
-		['','']
+		['payments', '1'],
+		['services', '1'],
+		['wallet/payment/service', '1'],
+		['wallet', '1']
 	];
 	constructor(
 		private http: HTTP,
@@ -30,6 +33,14 @@ export class RequestService {
 		switch (endPoint) {
 			case 'login':
 				return this.END_POINTS[0];
+			case 'payments':
+				return this.END_POINTS[1];
+			case 'services':
+				return this.END_POINTS[2];
+			case 'payment':
+				return this.END_POINTS[3];
+			case 'wallet':
+				return this.END_POINTS[4];
 			default:
 				break;
 		}
@@ -40,8 +51,8 @@ export class RequestService {
 		return new Promise((resolve, reject) => {
 			let endPointArray = this.selectEnpoint(endPoint);
 			if (endPointArray[1] == '1') {
-				this.utils.getAccessData().then((AccessUserData: AccessUserData) => {
-					this.HEADERS.Authorization = AccessUserData.getAuthorization();
+				this.utils.getAccessData().then((AccessUserData: string) => {
+					this.HEADERS.Authorization = 'Bearer ' + AccessUserData;
 					resolve(this.HEADERS);
 				}).catch((error) => {
 					reject(error);

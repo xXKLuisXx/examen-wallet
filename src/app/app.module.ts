@@ -8,6 +8,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Utils } from './models/utils';
 import { User } from './models/user';
 import { HTTP } from '@ionic-native/http/ngx';
+import { WalletService } from './services/wallet.service';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 	],
 	providers: [
 		Utils,
+		WalletService,
 		User,
 		LoadingController,
 		AlertController,
