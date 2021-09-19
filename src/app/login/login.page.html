@@ -1,0 +1,32 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>login</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-item style="width: 100%;">
+		<ion-label position="floating" color="nones" class="label">email
+		</ion-label>
+		<ion-input type="email" (ionChange)="setEmail($event)" placeholder="email"></ion-input>
+		<div *ngFor="let error of errorMessages.email" class="error-div">
+			<div *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+				<small class="error-message">{{error.message}} </small>
+			</div>
+		</div>
+	</ion-item>
+	<ion-item style="width: 100%;">
+		<ion-label position="floating" color="nones" class="label">password
+		</ion-label>
+		<ion-input type="password" (ionChange)="setPassword($event)" placeholder="password"></ion-input>
+		<div *ngFor="let error of errorMessages.password" class="error-div">
+			<div *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+				<small class="error-message">{{error.message}} </small>
+			</div>
+		</div>
+	</ion-item>
+
+	<div >
+		<ion-button (click)="submit()" color="success">Login</ion-button>
+	</div>
+</ion-content>
